@@ -26,8 +26,14 @@ building a form that gets the current weather:
 
 ## Weather Forecast
 
-Once you have completed the basic weather calls from the tutorial,
-explore the API to add additional functionality that shows:
+Once you have completed the basic weather calls from the tutorial, use
+the API to add the 5-day and 3-hour forecast.
+
+## Details
+
+There is a significant amount of data returned from the API. Spend a
+reasonable amount of time to figure out how to show as much of this as
+you can, including icons where possible.
 
 ## Web Design
 
@@ -62,7 +68,8 @@ rubric:
 Item | Points
 --- | ---
 Search for current weather works | 40
-5-day weather forecast added  | 40
+5-day weather forecast added  | 20
+3-hour weather forecast added  | 20
 Effort spent creating a professional-looking webpage | 10
 Uses good web design principles | 10
 
