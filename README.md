@@ -1,12 +1,13 @@
-# Lab2: Calling APIs with JQuery
+# Lab2: Using JavaScript
 
-In this assignment you will use JQuery to call APIs for the weather
-and for Stack Overflow questions.
+In this assignment you will use JavaScript to build a weather app.  To
+get the weather, we'll use the [OpenWeatherMap
+API](https://openweathermap.org/api).
 
 ## Starting the lab
 
 To start the lab, you must follow this [GitHub Classroom
-link](https://classroom.github.com/a/z8Udv1ag). This will create a
+link](). This will create a
 private repository for you using our classroom site. We will only
 grade repositories created and submitted this way.
 
@@ -15,49 +16,33 @@ new repository for you and grant you access to it on GitHub. In order
 to start working on the lab, simply clone the repository to your
 laptop or other working environment.
 
-## Weather API
+## Tutorial
 
-In `index.html`, build a form that includes a text input and a submit button:
+Use the [tutorial](https://github.com/BYU-CS260-Winter-2019/lab2/wiki)
+on the Wiki to get started with using the weather API. We'll begin by
+building a form that gets the current weather:
 
 ![weather form](images/weatherForm.png)
 
-Then, in `scripts.js` do the following:
+## Weather Forecast
 
-Create a JavaScript event handler that triggers when the Submit
-button is clicked. Inside this handler, use the value of the input
-field to send a request to the [OpenWeatherMap
-API](https://openweathermap.org/api) to get the current weather for
-that city. See
-[the Wiki page on the Weather API](https://github.com/BYU-CS260-Winter-2018/lab2/wiki/Weather-API)
-for helpful information.
-
-Once this is done, add some additional information from the returned
-weather info.
-
-**Optional**: Add data from the forecast, which requires another API call.
-
-## Stack Overflow
-
-In `index.html`, build a form that includes a text input and a submit
-button, similar to the one for weather, but instead for querying Stack
-Overflow.  Then, in `scripts.js` do the following:
-
-Create a JavaScript event handler that triggers when the Submit
-button is clicked. Inside this handler, use the value of the input
-field to send a request to the <a
-href="https://api.stackexchange.com/2.2/search?order=desc&sort=activity&site=stackoverflow&intitle=javascript">Stack
-Overflow API</a> to get a list of matching questions. Click the link
-above to see an example of searching for `JavaScript`.  You can view
-the [API documentation](https://api.stackexchange.com/docs/search) for
-guidance. You can also use console output to inspect the returned JSON
-from this API, like we show in the Wiki, and figure out the format
-from there. **This part you will do on your own.**
+Once you have completed the basic weather calls from the tutorial,
+explore the API to add additional functionality that shows:
 
 ## Web Design
 
-Add some design to the page. You may want to put weather and Stack
-Overflow on separate pages, or use tabs from a CSS framework, or
-add other design elements.
+Add some design to the page. Create a page that looks professional and
+follows the web design criteria we have discussed:
+
+* spacing -- use white space effectively to make the site clearer
+
+* color -- use color effectively to make the site appealing
+
+* typography -- make it pleasant to read
+
+* consistency -- everything should match
+
+* responsive design -- the site should work as well on mobile as on desktops; mobile-first designs for mobile, then expands to desktop
 
 ## Link to GitHub repository
 
@@ -76,12 +61,12 @@ rubric:
 
 Item | Points
 --- | ---
-Search for current weather works | 30
-Additional weather info added | 20
-Search on Stack Overflow works | 40
+Search for current weather works | 40
+5-day weather forecast added  | 40
+Effort spent creating a professional-looking webpage | 10
 Uses good web design principles | 10
 
 For the web design principles, you will receive 2 points for each for
-**spacing**, **typography**, **color**, **consistency**, and
-**responsive design**. We will subtract 1 point for a principle if you
-need some work, 2 points if you need a lot of work.
+spacing, typography, color, consistency, and responsive design. We
+will subtract 1 point for a principle if you need some work, 2 points
+if you need a lot of work.
