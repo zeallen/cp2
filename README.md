@@ -18,7 +18,7 @@ laptop or other working environment.
 
 ## Tutorial
 
-Use the [tutorial](https://github.com/BYU-CS260-Winter-2019/lab2/wiki)
+Use the [tutorial](https://github.com/BYU-CS-260-Winter-2019/lab2/wiki)
 on the Wiki to get started with using the weather API. We'll begin by
 building a form that gets the current weather:
 
