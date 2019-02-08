@@ -40,6 +40,7 @@ document.getElementById("weatherSubmit").addEventListener("click", function (eve
                     forecast += "<div class=\"grid\">";
                     forecast += "<h3>" + moment(json.list[i].dt_txt).format('MMM Do YYYY, h:mm a') + "</h3>";
                     forecast += "<p>Temperature: " + json.list[i].main.temp + "</p>";
+                    forecast += '</p><p> Humidity: ' + json.list[i].main.humidity + "%</p>";
                     forecast += '<img src="http://openweathermap.org/img/w/' + json.list[i].weather[0].icon + '.png"/>'
                     forecast += "</div>";
                     i++;
