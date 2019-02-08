@@ -1,0 +1,52 @@
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(199, 199, 198);
+    font-weight: bold;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: white;
+  }
+
+  
+.bg-light {
+    background-color: #023e50!important;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 1em;
+    color: #002F2F;
+  }
+
+  .form_stuff {
+      margin: 2em;
+      margin-top: 4em;
+      text-align: center;
+  }
+  .portfolio {
+    margin: 2em;
+    display: grid;
+    grid-template: auto auto auto auto auto / 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+
+  .grid {
+    border-style: dotted;
+    padding: .5em;
+  }
+
+.forecast {
+    margin-top: 3em;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.current_weather {
+    margin: 2em;
+    text-align: center;
+}
+
+  .invisible {
+    color: white;
+  }
