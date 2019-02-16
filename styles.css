@@ -7,9 +7,20 @@
     color: white;
   }
 
+  .intro {
+    margin: 4em;
+    margin-left: 15vw;;
+    margin-right: 15vw;
+  }
+
   
 .bg-light {
     background-color: #023e50!important;
+  }
+
+  ul {
+    text-align: left;
+    margin-left: 40vw;
   }
 
   h1 {
@@ -31,6 +42,14 @@
     grid-row-gap: 30px;
   }
 
+  img {
+    width: 15vw;
+  }
+
+  img:hover {
+    opacity: .5;
+  }
+
   .grid {
     border-style: dotted;
     padding: .5em;
@@ -42,7 +61,7 @@
     text-align: center;
 }
 
-.current_weather {
+.drink_info {
     margin: 2em;
     text-align: center;
 }

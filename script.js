@@ -4,59 +4,75 @@ document.getElementById("weatherSubmit").addEventListener("click", function (eve
     if (value === "")
         return;
     console.log(value);
-    const url = "http://api.openweathermap.org/data/2.5/weather?q=" + value + ",US&units=imperial&lang=en" + "&APPID=2201c68ad889109462a7a2938ff5864d";
+    const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + value + "&APPID=1";
     fetch(url)
         .then(function (response) {
             return response.json();
         }).then(function (json) {
-            let results = '<div class="current_weather">';
-            results += '<h2>Weather in ' + json.name + "</h2>";
-            for (let i = 0; i < json.weather.length; i++) {
-                results += '<img src="http://openweathermap.org/img/w/' + json.weather[i].icon + '.png"/>';
-            }
-            results += '<h2>' + json.main.temp + " &deg;F</h2>"
-            results += "<p>"
-            for (let i = 0; i < json.weather.length; i++) {
-                results += toTitleCase(json.weather[i].description);
-                if (i !== json.weather.length - 1)
-                    results += ", "
-            }
-            results += '</p><p> Humidity: ' + json.main.humidity + "%</p>";
-            results += "</div>";
-            document.getElementById("weatherResults").innerHTML = results;
-        });
-    const url2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + value + ", US&units=imperial" + "&APPID=2201c68ad889109462a7a2938ff5864d";
-    fetch(url2)
-        .then(function (response) {
-            return response.json();
-        }).then(function (json) {
-            let forecast = "";
-            forecast += '<div class="forecast"><h2> Forecast </h2></div>';
-            forecast += "<section class=\"portfolio\">";
-            for (let i = 0; i < json.list.length; i++) {
-                myDate = json.list[i].dt_txt.substring(0, 10);
-                let testDate = myDate;
-                while (testDate === myDate) {
-                    forecast += "<div class=\"grid\">";
-                    forecast += "<h3>" + moment(json.list[i].dt_txt).format('MMM Do YYYY, h:mm a') + "</h3>";
-                    forecast += "<p>Temperature: " + json.list[i].main.temp + "</p>";
-                    forecast += '</p><p> Humidity: ' + json.list[i].main.humidity + "%</p>";
-                    forecast += '<img src="http://openweathermap.org/img/w/' + json.list[i].weather[0].icon + '.png"/>'
-                    forecast += "</div>";
-                    i++;
-                    if (i >= json.list.length)
-                        break;
-
-                    testDate = json.list[i].dt_txt.substring(0, 10);
-                }
-            }
-            forecast += "</section>"
-            document.getElementById("forecastResults").innerHTML = forecast;
+            printDrink(json);
         });
 });
 
+document.getElementById("random").addEventListener("click", function (event) {
+    console.log("YAY");
+    const url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+        }).then(function (json) {
+            printDrink(json);
+        });
+});
+
+document.getElementById("nonAlcoholic").addEventListener("click", function (event) {
+    const url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic";
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+        }).then(function (json) {
+            printNonAlcoholic(json);
+        });
+});
+
+
+function printNonAlcoholic(json) {
+    let results = '<section class="portfolio">';
+    for (let i = 0; i < 58; i++) {
+        results += '<div class="image_grid">'
+        results += '<h4>' + json.drinks[i].strDrink + "</h4>";
+
+        results += '<img src="' + json.drinks[i].strDrinkThumb + '"/>';
+        results += '</div>';
+    }
+    results += "</section>";
+
+    document.getElementById("drinkResults").innerHTML = results;
+}
+
+function printDrink(json) {
+    let results = '<div class="drink_info">';
+    results += '<h2>Drink name: ' + json.drinks[0].strDrink + "</h2>";
+    if (json.drinks[0].strAlcoholic == "Alcoholic") {
+        results += '<h1>WARNING! IT\'S ALCOHOLIC!</h1>';
+    }
+    results += '<img src="' + json.drinks[0].strDrinkThumb + '"/>';
+    results += '<h4>Ingredients: </h4> <ul>';
+    for (let i = 1; i < 15; i++) {
+        let ingredID = 'strIngredient' + i;
+        if (json.drinks[0][ingredID] != "" && json.drinks[0][ingredID] != "null") {
+            console.log('ID: ' + ingredID + ' Ingredient: ' + json.drinks[0][ingredID]);
+            results += '<li>' + json.drinks[0][ingredID] + '</li>'
+        }
+    }
+    results += '</ul> <h4>Instructions: </h4>';
+    results += '<p>' + json.drinks[0].strInstructions + '</p>';
+
+    results += '</div>';
+    document.getElementById("drinkResults").innerHTML = results;
+}
+
 function toTitleCase(str) {
-    return str.replace(/\w\S*/g, function(txt){
+    return str.replace(/\w\S*/g, function (txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
 }
